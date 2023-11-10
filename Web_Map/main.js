@@ -47,7 +47,7 @@ function init(){
       })
     ],
     view: new ol.View({
-      zoom: 8,
+      zoom: 7,
       minZoom: 8,
       rotation: 0.5,
       // projection:'EPSG:32640',
@@ -65,10 +65,10 @@ function init(){
       //extent: ol.proj.transformExtent([55.408203953679255, 57.99200420598309, 56.29979683132314, 57.99200420598309], 'EPSG:4326', 'EPSG:32640')
       //center: ol.proj.fromLonLat([55.765946,58.080916]),
       center: [3061056.7, -2227751.4],
-      zoom: 4,
+      zoom: 6,
       maxZoom: 17,
       minZoom: 0,
-      rotation: 0.2,
+      rotation: 0,
       //projection: 'EPSG:4326',
       // projection:'EPSG:32640'
     }),
