@@ -1,1 +1,0 @@
-Previous name: 'web_map' (31.03.2021)
