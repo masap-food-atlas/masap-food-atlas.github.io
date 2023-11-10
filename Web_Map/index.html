@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MASAP FOOD ATLAS</title>
+<!--
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=bd738319-7362-464e-ad3b-e26cc4b53552&lang=ru_RU" type="text/javascript">
+-->
+  <link rel="stylesheet" href="./libs/v6.14.1-dist/ol.css">
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id='js-map' class='map'></div>
+  <div id='popup-container' class='popup-container'>
+    <p id='popup-coordinates' class='popup-coordinates'></p>
+  </div>
+
+  
+  <div class="sidebar">
+    <div class="logo_content">
+      <div class="logo">
+        <img src="./resources/icons/Logo.png" alt="">
+        <div class="longo_name"> MASAP FOOD ATLAS</div>
+        
+      </div>
+      <!-- <i class='bx bx-menu' id="btn"></i> -->
+      
+    </div>
+    <ul>
+      <h2>Base Layers</h2>
+      <li><input type="radio" name="baseLayerRadioButton" value="OSMStand" checked><a href="">OSM Standard</a> <br></li>
+      <!-- <input type="radio" name="baseLayerRadioButton" value="OSMHuman">OSM Humanitarian<br>
+      <input type="radio" name="baseLayerRadioButton" value="BingMapsSAT">Bing Satellite<br> -->
+      <li><input type="radio" name="baseLayerRadioButton" value="BingMapsSATLabels"><a href="">Bing Satellite (Labels)</a><br></li>
+      <!-- <input type="radio" name="baseLayerRadioButton" value="BingMapsRoad">Bing Maps Road<br> -->
+      <!-- <input type="radio" name="baseLayerRadioButton" value="YandexStand">Yandex Standard<br> -->  
+      <!-- <input type="radio" name="baseLayerRadioButton" value="StamenTerrain">Stamen Terrain<br> -->
+      <!-- <input type="radio" name="baseLayerRadioButton" value="StamenWatercolor">Stamen Watercolor<br> -->
+      <!-- <input type="radio" name="baseLayerRadioButton" value="StamenToner">Stamen Toner<br>
+      <input type="radio" name="baseLayerRadioButton" value="LocalWMS">Local WMS (GeoServer)<br>
+      <input type="radio" name='baseLayerRadioButton' value='OSMVectorTile'>OSM Vector Tiles<br> -->
+
+      <h2>Boundaries</h2>
+      <!-- <input type="checkbox" name='rasterLayerCheckBox' value='Roads'>Дороги<br> -->
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='zimbabwe'><a href="">Zimbabwe Boundary</a><br></li>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='districts'><a href="">Districts</a><br></li>
+      <!-- <li><input type="checkbox" name='rasterLayerCheckBox' value='wards'><a href="">Operational Wards</a><br></li> -->
+
+      <h2> FRUITS</h2>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='sandDams'><a href="">Wild Fruits</a><br></li>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='waterPoints'><a href="">Exotic Fruits</a><br></li>
+      <!-- <li><input type="checkbox" name='rasterLayerCheckBox' value='boreholes'><a href="">Boreholes</a><br></li> -->
+      <!-- <input type="checkbox" name='rasterLayerCheckBox' value='TileDebugLayer'>Тайловая сеть<br>
+      <input type="checkbox" name='rasterLayerCheckBox' value='Graticule'>Координатная сеть<br> -->
+    
+
+      <h2>MASAP CROPS</h2>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='gardens'><a href="">Small Grains</a><br></li>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='gardens'><a href="">Legumes</a><br></li>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='gardens'><a href="">Vegetables</a><br></li>
+      
+      <h2>MASAP DISHES</h2>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='gabions'><a href="">Traditional Dishes</a><br></li>
+      <li><input type="checkbox" name='rasterLayerCheckBox' value='woodlots'><a href="">Exotic Dishes</a><br></li>
+    </ul>
+    
+    
+    
+
+
+    
+
+  
+  </div>
+
+  <div class='overlay-container-ew'>
+    <span class='overlay-text1' id='ECW-type-info'></span><br>
+    <span class='overlay-text' id='ECW-district-info'></span><br>
+    <span class='overlay-text' id='ECW-wardNumber'></span><br>
+    <span class='overlay-text' id='ECW-project-info'></span><br>
+    <span class='overlay-text' id='local-Mean-Value'></span><br>
+  </div>
+  
+  <div class = 'overlay-container-catchment'>
+    <span class='overlay-text1' id='Dam-name-info'></span><br>
+    <span class='overlay-text' id='Dam-Dsitrict-info'></span><br>
+    <span class='overlay-text' id='Dam-Ward-info'></span><br>
+    <span class='overlay-text' id='Dam-catchment-info'></span><br>
+    <span class='overlay-text' id='Dam-Year-info'></span><br>
+    <div class='image-container'>
+      <img id="dam-image" src="" alt="Dam Image">
+    </div>
+  </div>
+  <div class = 'overlay-container-gardens'>
+    <span class='overlay-text1' id='garden-name-info'></span><br>
+    <span class='overlay-text' id='garden-type-info'></span><br>
+    <span class='overlay-text' id='garden-district-info'></span><br>
+    <span class='overlay-text' id='garden-ward-info'></span><br>
+    <span class='overlay-text' id='garden-project-info'></span><br>
+    <div class='image-container'>
+      <img id="garden-image" src="" alt="Garden Image">
+    </div>
+  </div>
+  <div class = 'overlay-container-woodlot'>
+    <span class='overlay-text1' id='woodlot-name-info'></span><br>
+    <span class='overlay-text' id='woodlot-size-info'></span><br>
+    <span class='overlay-text' id='woodlot-district-info'></span><br>
+    <span class='overlay-text' id='woodlot-ward-info'></span><br>
+    <span class='overlay-text' id='woodlot-description-info'></span><br>
+    <div class='image-container'>
+      <img id="woodlot-image" src="" alt="woodlot Image">
+    </div>
+  </div>
+
+
+  <div class = 'overlay-container-borehole'>
+    <span class='overlay-text1' id='borehole-name-info'></span><br>
+    <span class='overlay-text' id='borehole-size-info'></span><br>
+    <span class='overlay-text' id='borehole-district-info'></span><br>
+    <span class='overlay-text' id='borehole-ward-info'></span><br>
+    <span class='overlay-text' id='borehole-description-info'></span><br>
+    <div class='image-container'>
+      <img id="borehole-image" src="" alt="borehole Image">
+    </div>
+  </div>
+
+  </div>
+  </div>
+  <div class = 'overlay-container-subcatchment'>
+    <span class='overlay-text1' id='ward-project'></span><br>
+    <span class='overlay-text' id='subcatchment-name-info'></span><br>
+    <span class='overlay-text' id='subcatchment-area'></span><br>
+    
+  </div>
+
+
+  
+
+
+  <script src='./libs/v6.14.1-dist/ol.js'></script>
+  <!--
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.12.0/build/ol.js"></script>
+  -->
+  <script src="https://cdn.maptiler.com/ol-mapbox-style/v5.0.2/olms.js"></script>
+  <script src='./libs/proj4js/proj4.js'></script>
+  <script src='./libs/proj4js/proj4-src.js'></script>
+  <script src='./main.js'></script>
+
+  
+
+</div>
+
+ 
+  
+</body>
+</html>
