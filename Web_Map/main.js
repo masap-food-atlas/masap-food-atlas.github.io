@@ -56,7 +56,7 @@ function init(){
   });
 
   // Parameters
-  extentMap = [2709333,-3061491.4,4081675.7,-1760308.7];
+  extentMap = [2900000,-2500000.4,3200000,-2060308.7];
 
   // Map object
   const map = new ol.Map({
@@ -64,7 +64,7 @@ function init(){
       extent: extentMap,
       //extent: ol.proj.transformExtent([55.408203953679255, 57.99200420598309, 56.29979683132314, 57.99200420598309], 'EPSG:4326', 'EPSG:32640')
       //center: ol.proj.fromLonLat([55.765946,58.080916]),
-      center: [3325236.7, -2157860.4],
+      center: [3061056.7, -2227751.4],
       zoom: 4,
       maxZoom: 17,
       minZoom: 0,
