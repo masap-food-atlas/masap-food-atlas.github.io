@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Lobster&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  /* margin: 0;
+  padding: 0; */
+  display: flex;
+}
+
+.sidebar{
+  position: fixed;
+  right: 0px;
+  bottom: 30px;
+  width: 250px;
+  height: 600px;
+  background: #042331;
+
+};
+
+.sidebar ul h2{
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  background: #e5ece8;
+  line-height: 10px;
+  user-select: none;
+  
+  
+
+}
+
+.sidebar ul h2{
+  color: #f5f4fb;
+  font-size: 16px;
+  margin: 10px;
+  background: peru;
+}
+
+
+
+.sidebar ul{
+  margin: 20px;
+  line-height: 25px;
+}
+
+.sidebar ul li a{
+  margin: 5px;
+  text-decoration: none;
+  color:white;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid black;
+  padding-left: 5px;
+
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  transition: .4s;
+}
+
+ul li:hover a{
+  padding-left: 10px;
+  background: peru;
+  
+
+}
+/* .sidebar {
+  right: 0;
+
+  background: #1d175a;
+  /* padding: 6px 14px; */
+  /* margin-top: 5px;
+  margin-left: 1px;
+  margin-right: 2px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid brown;
+  background-color: rgba(223, 212, 210, 0);
+  color: blue;
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  font-size: 12px;
+  font-weight: bolder; */
+  /* } */
+
+
+.sidebar .logo_content .logo{
+  color:#fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  background: #239ed7;
+  
+}
+.logo_content .longo_name{
+  font-size:18px;
+  font-weight: 400;
+ 
+ 
+}
+.logo_content img{
+  height: 30px;
+  width: 30 px;
+  object-fit: cover;
+  border-radius: 12;
+  margin: 5px;
+
+}
+.sidebar #btn{
+  position: absolute;
+  color: #fff;
+  left: 90%;
+  top: 6px;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  transform: translateX(-60%);
+}
+
+.sidebar .sidebar-background img{
+  width: 100%;
+  padding-top: 25px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 5px;
+}
+.sidebar ul{
+  margin: 5px;
+}
+.sidebar ul li{
+  position: relative;
+  height: 25px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 5px;
+  border-radius: 12px;
+}
+.sidebar ul li .bx-search{
+  position: absolute;
+  color: #fff;
+  z-index: 99;
+}
+.sidebar ul li a{
+  color: #fff;
+  /* display: flex; */
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border-radius: 5px;
+}
+.sidebar ul li a:hover{
+  color: #11101d;
+  background: #fff;
+
+}
+.sidebar ul li a i{
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+
+
+}
+.map {
+ position: fixed;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+}
+
+.ol-custom-mouse-positionHDMS,
+.ol-mouse-position {
+  position: fixed;
+  top: 7%;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  color: #239ed7;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgba(225, 225, 225, 0.9); /* Slightly transparent background */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  z-index: 190;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+}
+
+.ol-custom-mouse-positionHDMS {
+  top: 2%; /* Adjust the position for the HDMS mouse position element */
+}
+
+/* Add hover styles to make the element more interactive */
+.ol-custom-mouse-positionHDMS:hover,
+.ol-mouse-position:hover {
+  background-color: rgba(225, 225, 225, 1); /* Solid background on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Limit the maximum width of .ol-mouse-position */
+.ol-mouse-position {
+  max-width: 230px; /* Adjust this value as needed */
+}
+.ol-scale-line {
+  /* background-color: rgba(4, 250, 25, 0.8); */
+  /*  background-color:rgba(202, 68, 35, 0.8);*/
+  /*color: rgb(255, 255, 0);
+  font-size: large;
+  font-weight: bold;*/
+  /* bottom: 8px; */
+  left: 50%;
+  /* padding: 2px;
+  position: absolute; */
+  display: block;
+  padding: 20px 32px 30px 10px;
+  font-family: Arial;
+  /* width: 120px; */
+  border: 1px solid #239ed7;
+  background-color: #239ed7;
+  bottom: 15px;
+  height: 20px;
+  margin-left: -7px;
+}
+
+
+.ol-control {
+  background-color: #FFF;
+  /*background-color: rgba(8, 77, 65, 0.8);
+  font: rgb(255, 255, 0);*/
+}
+
+.ol-control:hover {
+  color: #4C4C4C;
+}
+
+.ol-control button {
+  /* background-color:rgba(30, 26, 59, 0.692); */
+  border: 1px solid #57585A;
+  background-color: peru;
+  color: #4C4C4C;
+}
+
+.ol-zoom-extent {
+  top: 20em;
+  /* left: 0.5em; */
+  position: absolute;
+  text-align: center;
+  border: 1px solid #57585A;
+  background-color: #239ed7;
+  color: #4C4C4C;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/*.zoom-level {
+  top: 18.5em;
+  left: 0.5em;
+}*/
+
+.ol-zoomslider {
+  /* background-color: rgba(41, 202, 35, 0.4); 
+  top: 10%;
+  padding: 0;
+  width: 25px;
+  box-shadow: 0 0 5px rgba(177, 116, 4, 0.95);
+  border-radius: 10px; */
+  position: absolute;
+  text-align: center;
+  border: 1px solid peru;
+  background-color: #239ed7;
+  color: #4C4C4C;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+.ol-rotate {
+  top: 3em;
+  right: 0.5em;
+}
+
+.ol-control button:focus, .ol-control button:hover {
+  background-color: rgba(30, 26, 59, 0.692);
+}
+
+.popup-coordinates {
+  color: rgba(241, 241, 244, 0.986);
+  /*background-color: rgba(68, 59, 59, 0.8);*/
+  background-color:rgb(60, 255, 0);
+  margin: 0.5em;
+  border-radius: 0.5em;
+  /*padding: 5px;*/
+}
+
+.overlay-container {
+  text-align: center;
+  font-size: 12px;
+  padding: 4px 4px;
+  color: rgb(255, 255, 255);
+  background-color:peru;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+.overlay-container-ew, .overlay-container-borehole, .overlay-container-gardens, .overlay-container-woodlot, .overlay-container-catchment, .overlay-container-subcatchment {
+  text-align: center;
+  font-size:12px;
+  font-family: "Helvetica Neue", Arial, sans-serif; /* Modern font family */
+  padding: 12px; /* Increased padding for a more spacious look */
+  color: rgb(2, 2, 2);
+  background-color: rgba(245, 248, 252, 0.8); /* A beautiful blue color with 80% opacity */
+  margin: 0.5em;
+  border-radius: 10px; /* Increased border radius for a smoother look */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Updated box shadow for a more subtle effect */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adding a transition effect */
+  max-width: 300px;
+  max-height: 400px;
+}
+
+/* Add a subtle text shadow for a modern look */
+.overlay-container-ew,.overlay-container-borehole, .overlay-container-gardens, .overlay-container-woodlot, .overlay-container-catchment, .overlay-container-subcatchment {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Add hover styles for an interactive effect */
+.overlay-container-ew:hover, .overlay-container-gardens:hover, .overlay-container-woodlot:hover, .overlay-container-catchment:hover, .overlay-container-subcatchment:hover {
+  background-color: rgba(245, 248, 252, 1); /* A different color with full opacity when hovering */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Increased shadow when hovering */
+}
+
+/* Add hover styles for an interactive effect */
+.overlay-container-ew:hover, .overlay-container-gardens:hover, .overlay-container-woodlot:hover, .overlay-container-catchment:hover, .overlay-container-subcatchment:hover {
+  background-color: rgba(255, 188, 128, 0.8); /* A different color with 80% opacity when hovering */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Slightly increased shadow when hovering */
+}
+
+
+.overlay-text1{
+  font-size: 15px;
+  color: rgb(1, 1, 1);
+  font-weight: bold;
+}
+
+
+
+/* .sub-menu-1 {
+  display: none;
+} */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 250px; /* You can adjust the height as per your design requirements */
+  overflow: hidden;
+  border-radius: 10px; /* Increased border radius for a smoother look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Adding a subtle box shadow for depth */
+  transition: box-shadow 0.3s ease;
+}
+
+/* CSS styles for the image itself */
+#garden-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the container while maintaining its aspect ratio */
+}
+
+#dam-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the container while maintaining its aspect ratio */
+}
+
+
+#woodlot-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the container while maintaining its aspect ratio */
+}
+/* CSS styles for the attribution image container */
+.attribution-image-container {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  overflow: hidden;
+  background-color: white; /* Optional: Set a background color for the container */
+  opacity: 0.8; /* Optional: Set the opacity of the container */
+}
+
+/* CSS styles for the attribution image itself */
+.attribution-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the container while maintaining its aspect ratio */
+}
+
+
