@@ -47,7 +47,7 @@ function init(){
       })
     ],
     view: new ol.View({
-      zoom: 7,
+      zoom: 8,
       minZoom: 8,
       rotation: 0.5,
       // projection:'EPSG:32640',
@@ -64,11 +64,11 @@ function init(){
       extent: extentMap,
       //extent: ol.proj.transformExtent([55.408203953679255, 57.99200420598309, 56.29979683132314, 57.99200420598309], 'EPSG:4326', 'EPSG:32640')
       //center: ol.proj.fromLonLat([55.765946,58.080916]),
-      center: [3061056.7, -2227751.4],
-      zoom: 6,
+      center: [3059197, -2223751],
+      zoom: 15,
       maxZoom: 17,
       minZoom: 0,
-      rotation: 0,
+      rotation: 0.2,
       //projection: 'EPSG:4326',
       // projection:'EPSG:32640'
     }),
@@ -684,11 +684,11 @@ function createLabelStyle(feature, resolution) {
   // Sand Dams layer
   const sandDamsGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-      url: './resources/shapefiles/sandDams.geojson',
+      url: './resources/shapefiles/traidtionalFood.geojson',
       format: new ol.format.GeoJSON()
     }),
-    visible: false,
-    title: 'sandDams',
+    visible: true,
+    title: 'traiditionalFood',
     style: new ol.style.Style({
       image:damMarkerStyle
     }),
